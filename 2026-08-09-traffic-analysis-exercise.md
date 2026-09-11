@@ -93,10 +93,9 @@ dns.flags.response == 0
 
 After applying the filter, read the **Source** column and expand **Domain Name System** in the packet details pane for each row's queried name. There is no built-in count/sort in the packet list itself, so for a large capture use **Statistics, DNS** to see query volume, or scan visually since the filtered list is already much shorter.
 
-<img src=":/f4a4416d3abd47b8bee8da9eaf4349b0" alt="770f930a7aa7cbcb9337fab193c35caa.png" width="1261" height="647" class="jop-noMdConv">
-
-<img src=":/62e6ed04ef9d434ba0254a65db5ee2a7" alt="067180aecbd7520d7dfb3544dfdd1e97.png" width="340" height="163" class="jop-noMdConv">                                ![cf2e8541cfd0582f48bdb55b02504f51.png](:/6b642ffcd7b24516b322d9a0412f5c7b)
-
+<img width="1620" height="831" alt="Image" src="https://github.com/user-attachments/assets/e011eb32-6840-4f8a-a421-b1981bf6708b" />
+<img width="321" height="154" alt="Image" src="https://github.com/user-attachments/assets/6a4e853c-f5cc-487b-8196-47de02f1fb78" />
+<img width="261" height="205" alt="Image" src="https://github.com/user-attachments/assets/7191005d-7561-480f-ac0e-2fd23af81848" />
 Result:
 
 - `172.16.8.53` mostly queried normal Microsoft/Bing/MSN domains, ordinary background traffic for a Windows machine.
@@ -121,10 +120,8 @@ Note: it is okey if you do not see the same colums as shown in my screenshot it 
 
 I added custom columns for `http.host` and `http.user_agent` so i can scan them visually without opening every packet, yoiu just have to right click each field in the packet details pane and choose **Apply as Column**.
 
-<img src=":/5b7a4c2a183c49b1879270f13ca56b07" alt="95a13e41eff4c0d7a78117dc9919197a.png" width="912" height="451" class="jop-noMdConv">
-
-![89d5b5f2ca14f2f00a6c0d51b04ed495.png](:/fb86e65bc60a4630b49e8ea99fc84fdb)
-
+<img width="1912" height="946" alt="Image" src="https://github.com/user-attachments/assets/258ddb60-035f-4a6b-aaf5-55c38236da89" />
+<img width="1878" height="876" alt="Image" src="https://github.com/user-attachments/assets/877d0ddd-1e41-4054-90c6-b61e920ab18f" />
 Result:
 
 - `172.16.8.49` made repeated HTTP requests to a rotating set of the odd domains found in **step 3**, each with a short random looking path (`/lqjm/`, `/8nw8/`, `/r7l3/`, `/hut9/`, `/7qex/`, `/v2r8/`, `/irpw/`, `/ujvq/`), each hit multiple times, and each carrying a matching pair of encrypted looking query parameters across every domain.
