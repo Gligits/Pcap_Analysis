@@ -169,8 +169,7 @@ Note:these only appear on Request and Inform packets, not every DHCP packet.
 Result:  
 A DHCP Request packet where `dhcp.option.hostname` was `DESKTOP-5NLV63K` and `dhcp.option.requested_ip_address` was `172.16.8.49`, tying the hostname directly to the IP address we already confirmed.  
 this will be confirmed in **Step 7's Kerberos output**
-
-![944ff1f6d2fe78b1ebfaab87a439e79e.png](:/0ff003c29e104ef08635beb29fa282a9)
+<img width="1615" height="825" alt="Image" src="https://github.com/user-attachments/assets/24b08fb8-aaed-42df-876f-041ef1ff16bd" />
 
 ==**the hostname is `DESKTOP-5NLV63K`.**==
 
