@@ -122,6 +122,7 @@ I added custom columns for `http.host` and `http.user_agent` so i can scan the
 
 <img width="1912" height="946" alt="Image" src="https://github.com/user-attachments/assets/258ddb60-035f-4a6b-aaf5-55c38236da89" />
 <img width="1878" height="876" alt="Image" src="https://github.com/user-attachments/assets/877d0ddd-1e41-4054-90c6-b61e920ab18f" />
+
 Result:
 
 - `172.16.8.49` made repeated HTTP requests to a rotating set of the odd domains found in **step 3**, each with a short random looking path (`/lqjm/`, `/8nw8/`, `/r7l3/`, `/hut9/`, `/7qex/`, `/v2r8/`, `/irpw/`, `/ujvq/`), each hit multiple times, and each carrying a matching pair of encrypted looking query parameters across every domain.
@@ -147,8 +148,7 @@ then:
 click any result and expand **Ethernet II (you can stop here because it appears) -> Source** in the packet details pane.
 ```
 
-<img src=":/5a4b4df792044803be3c81eb114eb9d3" alt="a37c0d5cd446319a0da1fe7358cf9ce7.png" width="824" height="295" class="jop-noMdConv">
-
+<img width="1000" height="358" alt="Image" src="https://github.com/user-attachments/assets/7a06a4a9-1cc7-4ce6-872c-dde95c76df65" />
 ==**the MAC address is 00:12: f0:28:d4:34**==
 
 ## 6: Get the hostname
@@ -166,10 +166,10 @@ chack **Option: (12) Host Name** and **Option: (50) Requested IP Address**
 Note:these only appear on Request and Inform packets, not every DHCP packet.
 ```
 
+<img width="1615" height="825" alt="Image" src="https://github.com/user-attachments/assets/24b08fb8-aaed-42df-876f-041ef1ff16bd" />
 Result:  
 A DHCP Request packet where `dhcp.option.hostname` was `DESKTOP-5NLV63K` and `dhcp.option.requested_ip_address` was `172.16.8.49`, tying the hostname directly to the IP address we already confirmed.  
 this will be confirmed in **Step 7's Kerberos output**
-<img width="1615" height="825" alt="Image" src="https://github.com/user-attachments/assets/24b08fb8-aaed-42df-876f-041ef1ff16bd" />
 
 ==**the hostname is `DESKTOP-5NLV63K`.**==
 
@@ -186,8 +186,7 @@ Expand **Kerberos -> as-req -> cname -> cname-string -> CNameString** and **Kerb
 
 ```
 
-![2a2cab548881036208d1cdac911b666e.png](:/bc30491e1ba64e6786b5a306a5cfb76d)  
-Result:  
+<img width="1915" height="784" alt="Image" src="https://github.com/user-attachments/assets/28a51cb9-a64e-49ea-b8af-e5d75442e5df" />Result:  
 we see two distinct client principal names from this IP:
 
 - one was `desktop-5nlv63k$`, the machine account (note the trailing dollar sign, which always marks a computer account rather than a person)
@@ -216,8 +215,7 @@ Search on the **Info** column for each result to find the line that says **Query
 
 this produces a numbered sequence of SAMR operations (Connect5, EnumDomains, LookupDomain, OpenDomain, LookupNames, OpenUser, QueryUserInfo, and so on), we note the frame number of the `QueryUserInfo response` line ( you can get the details in the packet detail pane just by clicking that row, the search by frame number that comes next is optional in wireshark)
 
-![95f7942710d8f937610a0df51b4c35a1.png](:/faa92348fb67410a9396f4254bc90480)
-
+<img width="1600" height="532" alt="Image" src="https://github.com/user-attachments/assets/364ba1aa-30d8-47bb-87d6-92c11af80295" />
 Then read that specific packet in full detail:
 
 ```bash
@@ -230,7 +228,8 @@ type frame.number == <that_frame_number> in the filter bar
 then: in the packet details pane, expand the SAMR response fields down into **QueryUserInfo, Info21, Full Name**.
 ```
 
-![d82fc0fbf9f3b228de21ba77627d8550.png](:/af79bdb5d16e400986379f05bd826b54)  
+<img width="1177" height="772" alt="Image" src="https://github.com/user-attachments/assets/5e52011b-02fd-4b3b-8c36-d5201560d554" />
+
 Result: the response packet contained both `Account Name: rvance` and `Full Name: Raymond Vance` together in the same SAMR structure, directly linking the username to a real name.
 
 &nbsp;==**the full name is `Raymond Vance`.**==
