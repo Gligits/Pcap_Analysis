@@ -53,8 +53,9 @@ Wireshark:
 this is a statistics command, not a filter, you should go to:
 Statistics -> Protocol Hierarchy in the menu bar
 ```
+<img width="766" height="416" alt="Image" src="https://github.com/user-attachments/assets/3b62f6b3-49d9-467d-a89e-32714e1abed7" />
 
-What this showed: `dhcp`, `dns`, `nbns`, `http`, `kerberos`, `ldap`, `smb2`, `tls`, `dcerpc` (including `samr`).
+This shows: `dhcp`, `dns`, `nbns`, `http`, `kerberos`, `ldap`, `smb2`, `tls`, `dcerpc` (including `samr`).
 
 This means that we are facing a Windows Active Directory environment (Kerberos, LDAP, SMB2, SAMR)  
 so:
