@@ -1,3 +1,58 @@
+File analyzed: `2026-09-11-traffic-analysis-exercise.pcap`
+the purpose is to find:
+
+- the IP address of the infected Windows client?
+- the MAC address of the infected Windows client?
+- the host name of the infected Windows client?
+- the user account name from the infected Windows client?
+- the full name of the user from the user account?
+
+
+Every step below shows the process of this pcap analysis using wireshark, in addition to the equivalent tshark commands, so you can follow along in either tool.
+
+* * *
+
+To avoid any confusion, keep in mind that few steps use tshark's `-z` statistics or `-V` full-packet-detail options, which have no filter bar text if you use wireshark, those are marked with the matching menu action instead.
+
+* * *
+
+# Setup
+
+```bash
+apt-get update
+apt-get install -y tshark
+(for debian based distributions)
+```
+
+About the pcap file: it came zipped, protected with a password, unzip it this way
+
+```bash
+unzip -P infected_20260911 2026-09-11-traffic-analysis-exercise.zip
+```
+
+# Troubleshooting
+
+I have, earlier, with another pcap file encountered an annoying problem with wireshark filters where a protocol was not being detected at all, if you, during the investigation, find yourslef having the same problem with any type of protocol I advise you to check the troubleshooting file
+
+# PCAP analysis
+## 1: See what protocols exist
+
+Before filtering anything, we should get an overview of the capture to get a general idea
+
+```bash
+tshark -r 2026-08-09-traffic-analysis-exercise.pcap -q -z io,phs
+```
+
+```md
+Wireshark: 
+this is a statistics command, not a filter, you should go to:
+Statistics -> Protocol Hierarchy in the menu bar
+```
+
+
+This showed: `DNS, TLS, QUIC, HTTP, SMB2, Kerberos, LDAP, SAMR, NBNS,` and a protocol called `browser.` 
+This is a Windows AD environment (Kerberos, LDAP, SMB2, SAMR), with **no DHCP** present
+
 <img width="1588" height="721" alt="Image" src="https://github.com/user-attachments/assets/051ef58c-f96b-4ec6-89a4-b0039ed46a2b" />
 
 <img width="1654" height="904" alt="Image" src="https://github.com/user-attachments/assets/4a3f70b3-b2ed-4f0d-945d-56ebdb463460" />
