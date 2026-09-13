@@ -99,6 +99,8 @@ After applying the filter, read the **Source** column and expand **Domain Name S
 <img width="1620" height="831" alt="Image" src="https://github.com/user-attachments/assets/e011eb32-6840-4f8a-a421-b1981bf6708b" />
 <img width="321" height="154" alt="Image" src="https://github.com/user-attachments/assets/6a4e853c-f5cc-487b-8196-47de02f1fb78" />
 <img width="261" height="205" alt="Image" src="https://github.com/user-attachments/assets/7191005d-7561-480f-ac0e-2fd23af81848" />
+
+
 Result:
 
 - `172.16.8.53` mostly queried normal Microsoft/Bing/MSN domains, ordinary background traffic for a Windows machine.
