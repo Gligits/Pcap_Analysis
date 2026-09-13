@@ -68,8 +68,8 @@ tshark -r 2026-08-09-traffic-analysis-exercise.pcap -Y "dns.flags.response==0" -
 Wireshark filter bar:
 dns.flags.response == 0 && ip.src == 10.9.11.135
 ```
+<img width="1876" height="937" alt="Image" src="https://github.com/user-attachments/assets/39a39cf6-6dbd-4161-a954-4748463c8c0c" />
 
-<img width="1654" height="904" alt="Image" src="https://github.com/user-attachments/assets/4a3f70b3-b2ed-4f0d-945d-56ebdb463460" />
 
 We see only one internal client IP that appeared as a heavy talker, `10.9.11.135`
 
@@ -77,8 +77,7 @@ The domain controller, `10.9.11.2,` only talked internally, as expected.
 
 ## 3: Confirming with DNS and getting the MAC address
 
-
-<img width="1192" height="211" alt="Image" src="https://github.com/user-attachments/assets/ed263923-abf3-439f-9f4e-7aaed40701f8" />
+<img width="1654" height="904" alt="Image" src="https://github.com/user-attachments/assets/4a3f70b3-b2ed-4f0d-945d-56ebdb463460" />
 
 We can easily notice, alongside normal Microsoft/Google traffic, this host repeatedly queried domains like `globalcert8618.net, opsbox8097.com, hostjob3862.net, winrun2915.com, opscast3707.net, and logincrypt8338.com.`
 
@@ -87,7 +86,6 @@ The exercice also stated in background (Kongtuke ClickFix activity), which is a 
 ==we confirm that the infected IP address is `10.9.11.135`==
 
 
-<img width="1876" height="937" alt="Image" src="https://github.com/user-attachments/assets/39a39cf6-6dbd-4161-a954-4748463c8c0c" />
 
 ```md
 Wireshark:
@@ -99,18 +97,15 @@ If you are with tshark you can just use this command:
 ```bash
 tshark -r 2026-09-11-traffic-analysis-exercise.pcap -Y "ip.src==10.9.11.135" -T fields -e eth.src | sort -u
 ```
+<img width="1192" height="211" alt="Image" src="https://github.com/user-attachments/assets/ed263923-abf3-439f-9f4e-7aaed40701f8" />
 
 ==we can conclude that the MAC address is `08:d4:0c:7a:29:1e`==
 
 
-<img width="1254" height="265" alt="Image" src="https://github.com/user-attachments/assets/947a9c6a-b938-4bb0-afc8-f34049b18d48" />
-
 ## 4: Getting the hostname
 
 This file has no DHCP we have seen the on Step 1 and we can confirm it right now
-
-<img width="1899" height="712" alt="Image" src="https://github.com/user-attachments/assets/215cbc95-1a2d-4001-b729-8e12a5777577" />
-
+<img width="1254" height="265" alt="Image" src="https://github.com/user-attachments/assets/947a9c6a-b938-4bb0-afc8-f34049b18d48" />
 
 So the usually used option doesn't apply.
 
@@ -135,8 +130,7 @@ Wireshark filter bar:
 browser && ip.src == 10.9.11.135
 ```
 
-
-<img width="944" height="335" alt="Image" src="https://github.com/user-attachments/assets/c0fe9e7c-5523-4d1b-b3dc-025559008023" />
+<img width="1899" height="712" alt="Image" src="https://github.com/user-attachments/assets/215cbc95-1a2d-4001-b729-8e12a5777577" />
 
 10.9.11.135 sent a Host Announcement and a Request Announcement, both naming itself DESKTOP-6T17ZFM
 
@@ -149,9 +143,8 @@ Wireshark:
 Expand Kerberos -> cname -> as-req ->req-body ->cname ->cname-string -> CNameString in the packet details pane
 ````
 
+<img width="944" height="335" alt="Image" src="https://github.com/user-attachments/assets/c0fe9e7c-5523-4d1b-b3dc-025559008023" />
 
-
-<img width="944" height="362" alt="Image" src="https://github.com/user-attachments/assets/9a91c54e-813d-420f-8b27-66cb15e09091" />
 
 Result:  
 a client name: gmcdowell, realm: OVERHANDS
@@ -163,4 +156,9 @@ a client name: gmcdowell, realm: OVERHANDS
 Wireshark filter bar:
 samr && ip.addr == 10.9.11.135
 ````
+<img width="944" height="362" alt="Image" src="https://github.com/user-attachments/assets/9a91c54e-813d-420f-8b27-66cb15e09091" />
 
+Result:  
+the response contained both Account name: gmcdowell and full name: Gabriel McDowell
+
+==the full name is `Gabriel McDowell`==
