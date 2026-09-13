@@ -1,4 +1,7 @@
 File analyzed: `2026-09-11-traffic-analysis-exercise.pcap`
+
+Where you can find it: https://www.malware-traffic-analysis.net/training-exercises.html
+
 the purpose is to find:
 
 - the IP address of the infected Windows client?
