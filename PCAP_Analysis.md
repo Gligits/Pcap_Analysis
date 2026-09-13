@@ -77,6 +77,21 @@ HTTPS is the same idea, but encrypted, so the content is hidden from anyone watc
 
 - Repeated requests to unusual domains, with a mismatched or outdated User-Agent, or a suspicious repeating URL pattern, are a sign of malware communicating with its operator (called command and control, aka "C2").
 
+## 2.5 NBNS, "who has this name on the network?"
+
+NBNS (NetBIOS Name Service) is an older Windows protocol used to look up and announce machine names on a local network, separate from DNS
+
+- Windows machines send NBNS traffic constantly in the background, mostly to resolve names to IPs on the LAN itself
+- It doesn't always contain a specific hostname though, sometimes it only has  the domain/workgroup name instead of the machine name, depending on the query type captured
+
+## 2.6 The Browser protocol (helps with the hostname)
+
+The Browser protocol is a  Windows service used for network neighborhood discovery, machines periodically announce themselves on the LAN so others can see them
+
+- A **Host Announcement** packet includes the sender's own hostname directly in it
+- A **Browser Election Request** is a different kind of packet, machines voting on who manages browsing duties, it does not contain a hostname 
+
+This is useful specifically when DHCP isn't present in a capture (if you are searching for the hostname)
 ---
 
 # 3: What Active Directory is 
