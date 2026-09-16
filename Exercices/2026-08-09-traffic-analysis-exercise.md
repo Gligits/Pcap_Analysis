@@ -94,7 +94,9 @@ Wireshark filter bar:
 dns.flags.response == 0
 ```
 
-After applying the filter, read the **Source** column and expand **Domain Name System** in the packet details pane for each row's queried name. There is no built-in count/sort in the packet list itself, so for a large capture use **Statistics, DNS** to see query volume, or scan visually since the filtered list is already much shorter.
+After applying the filter and checked the **Source** column for the IP addresses and expand **Domain Name System** in the packet details pane for each row's queried name. 
+
+Note: there is no built-in count/sort in the packet list itself, so for a large capture use **Statistics, DNS** to see query volume (for this one it can, be scanned visually since the filtered list is already much shorter)
 
 <img width="1620" height="831" alt="Image" src="https://github.com/user-attachments/assets/e011eb32-6840-4f8a-a421-b1981bf6708b" />
 <img width="321" height="154" alt="Image" src="https://github.com/user-attachments/assets/6a4e853c-f5cc-487b-8196-47de02f1fb78" />
