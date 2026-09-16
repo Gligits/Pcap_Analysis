@@ -1,3 +1,28 @@
+File analyzed: 2026-02-28-traffic-analysis-exercise.pcap
+
+Where you can find it: https://www.malware-traffic-analysis.net/training-exercises.html
+
+the purpose is to find:
+
+the infected host's IP
+the infected host's MAC address
+the infected host's hostname
+the infected host's username and the full name of that user
+Every step below shows the process of this pcap analysis using wireshark
+
+# Setup
+I am assuming that you already use an os that has wireshark pre-installed
+
+About the pcap file: it came zipped, protected with a password, unzip it this way
+
+unzip -P infected_20260228 2026-02-28-traffic-analysis-exercise.zip
+
+# Troubleshooting
+I have personally encountered an annoying problem with wireshark filters where a protocol was not being detected at all, if you, later, find yourslef having the same problem with any type of protocol I advise you to check the troubleshooting file
+
+# PCAP analysis
+## 1: See what protocols exist
+Before filtering anything, we should get an overview of the capture to get a general idea
 
 <img width="1504" height="775" alt="Image" src="https://github.com/user-attachments/assets/3ae9c020-1e2b-44fe-b381-faf93dce7279" />
 
