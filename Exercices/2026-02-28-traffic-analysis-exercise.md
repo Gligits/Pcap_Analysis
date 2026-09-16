@@ -74,9 +74,26 @@ Result:
 
 - `10.2.28.88` queried some normal Microsoft domains, but also queried a long list of odd, short, randomly worded domains with unusual top level domains
 
-we know that egitimate everyday browsing does not generate a long list of very random-looking domains across unusual TLDs 
+we know that legitimate everyday browsing does not generate a long list of very random-looking domains across unusual TLDs 
 
-==**10.2.28.88 is much suspected to be the infected host**==
+we can also confirm that no other internal IP shows up as a source at all!
+
+This is confirmed independently by the DHCP exchange at the very start of the capture, where 10.2.28.88 is explicitly the address being handed out by the DHCP server (10.2.28.1) to this machine
+
+<img width="764" height="71" alt="Image" src="https://github.com/user-attachments/assets/11e983c5-fb28-4a56-9611-97d74db010c8" />
+
+
+==**10.2.28.88 is with no doubt the infected host**==
+
+
+
+
+<img width="947" height="301" alt="Image" src="https://github.com/user-attachments/assets/487dd9c4-8e33-4da2-ae0b-cce6c154d378" />
+
+<img width="950" height="376" alt="Image" src="https://github.com/user-attachments/assets/aab4f374-fb24-42a7-a40c-4d6571f7e96d" />
+
+
+--- 
 
 ## 4: Confirming with HTTP request behavior
 
@@ -95,15 +112,6 @@ Note: The grey rows are SSDP, it may seem strange since we are filtering for htt
 
 and 239.255.255.250:1900 is the standard multicast address/port used for SSDP/UPnP discovery, therefore these requests are considered network/service discovery traffic, not web browsing
 
-<img width="686" height="81" alt="Image" src="https://github.com/user-attachments/assets/47512dff-1a64-4585-b608-984e05c21d36" />
+For the other requests, the User-Agent in is **NetSupport Manager **, which is a legitimate remote-management and remote-control software. However, the machine 10.2.28.88 is repeatedly communicating with the external IP 45.131.214.85 while identifying itself as NetSupport Manager
 
-
-<img width="947" height="301" alt="Image" src="https://github.com/user-attachments/assets/487dd9c4-8e33-4da2-ae0b-cce6c154d378" />
-
-<img width="950" height="376" alt="Image" src="https://github.com/user-attachments/assets/aab4f374-fb24-42a7-a40c-4d6571f7e96d" />
-
-
---- 
-<img width="1288" height="90" alt="Image" src="https://github.com/user-attachments/assets/99fabacd-6d49-4ee5-bb2a-c20f6d2a3370" />
-
-<img width="764" height="71" alt="Image" src="https://github.com/user-attachments/assets/11e983c5-fb28-4a56-9611-97d74db010c8" />
+But Why is this machine using NetSupport Manager to communicate with this particular external server? this leads us to question if NetSupport Manager was intentionally installed and used on the machine
