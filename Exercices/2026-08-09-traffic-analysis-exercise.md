@@ -60,6 +60,7 @@ This shows: `dhcp`, `dns`, `nbns`, `http`, `kerberos`, `ldap`, `smb2`, `tls`, `d
 This means that we are facing a Windows Active Directory environment (Kerberos, LDAP, SMB2, SAMR)  
 so:
 - hostname and username questions can be answered from domain authentication traffic
+
 There's also a reasonable amount of plain HTTP to inspect for malicious activity
 
 ## 2: Find candidate internal hosts by conversation volume
