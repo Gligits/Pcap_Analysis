@@ -123,7 +123,7 @@ the requested ip address: 10.2.28.88
 
 which the DHCP server gave to machine (DHCP ACK, frame 104)
 
-==**DESKTOP-TEYQ2NR is the MAC address of the infected machine**==
+==**DESKTOP-TEYQ2NR is the hostname of the infected machine**==
 
 ## 6: Getting the user account name from the infected Windows machine
 
@@ -136,7 +136,10 @@ Expand **Kerberos -> as-req -> cname -> cname-string -> CNameString** and **Kerb
 ````
 
 <img width="949" height="362" alt="image" src="https://github.com/user-attachments/assets/d6f24004-3ac3-40fa-b8d1-7a332fcfc524" />
-&nbsp;==**the username is brolf**==
+
+&nbsp;
+
+==**the username is brolf**==
 
 ## 7: Full name of the user from the user account 
 
@@ -149,10 +152,12 @@ samr && ip.addr==10.2.28.88
 
 <img width="946" height="393" alt="image" src="https://github.com/user-attachments/assets/7a2fcabe-4d6f-4356-9826-e37b33e7fbf3" />
 
+==**the full name is Becka Rolf**==
 
 --- 
+# Further Investigation
 
-## 4: Confirming with HTTP request behavior
+## HTTP request behavior
 
 ```md
 General wireshark filter :
